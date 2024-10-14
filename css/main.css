@@ -16,7 +16,12 @@ body {
 }
 
 
-#Walls {
+#block {
     background-color: white;
-    width: 10;
+    position: absolute;
+}
+
+#finish {
+    background-color: blue;
+    position: absolute;
 }
