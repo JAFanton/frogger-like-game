@@ -1,7 +1,7 @@
 body {
     margin: 0;
     padding: 0;
-    background: lightblue;
+    background: black;
 }
 
 #board {
@@ -11,6 +11,12 @@ body {
 }
 
 #player {
-    background-color: black;
+    background-color: red;
+    position: absolute;
 }
 
+
+#Walls {
+    background-color: white;
+    width: 10;
+}
