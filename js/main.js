@@ -97,17 +97,33 @@ class Block {
   }
 }
 
+
+
 document.addEventListener("keydown", (e) => {
-  if (e.code === "ArrowLeft") {
-    player.moveLeft();
-  } else if (e.code === "ArrowRight") {
-    player.moveRight();
-  } else if (e.code === "ArrowUp") {
-    player.moveUp();
-  } else if (e.code === "ArrowDown") {
-    player.moveDown();
+  if (
+    player.positionX < block.positionX + block.width &&
+    player.positionX + player.width > block.positionX &&
+    player.positionY < block.positionY + block.height &&
+    player.positionY + player.height > block.positionY
+  ) {
+    player.positionX = 0;
+    player.positionY = 0;
+    player.domElement.style.left = player.positionX + "vw";
+    player.domElement.style.top = player.positionY + "vh";
+  } else {
+    if (e.code === "ArrowLeft") {
+      player.moveLeft();
+    } else if (e.code === "ArrowRight") {
+      player.moveRight();
+    } else if (e.code === "ArrowUp") {
+      player.moveUp();
+    } else if (e.code === "ArrowDown") {
+      player.moveDown();
+    }
   }
 });
+
+
 
 const player = new Player();
 
