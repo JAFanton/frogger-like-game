@@ -1,3 +1,5 @@
+
+// Player Avatar
 class Player {
   constructor() {
     this.width = 5;
@@ -49,6 +51,7 @@ class Player {
   }
 }
 
+// Finish Line
 class Finish {
   constructor() {
     this.width = 10;
@@ -73,6 +76,7 @@ class Finish {
   }
 }
 
+// Obstacle Lane 1
 class Block {
   constructor() {
     this.width = 5;
@@ -102,6 +106,7 @@ class Block {
   }
 }
 
+// Obstacle Lane 2
 class Block2 {
   constructor() {
     this.width = 5;
@@ -131,6 +136,7 @@ class Block2 {
   }
 }
 
+// Obstacle Lane 3
 class Block3 {
   constructor() {
     this.width = 5;
@@ -160,6 +166,7 @@ class Block3 {
   }
 }
 
+// Obstacle Lane 4
 class Block4 {
   constructor() {
     this.width = 5;
@@ -189,47 +196,104 @@ class Block4 {
   }
 }
 
+
+// Movement functionality
 document.addEventListener("keydown", (e) => {
+    if (e.code === "ArrowLeft") {
+      player.moveLeft();
+    } else if (e.code === "ArrowRight") {
+      player.moveRight();
+    } else if (e.code === "ArrowUp") {
+      player.moveUp();
+    } else if (e.code === "ArrowDown") {
+      player.moveDown();
+    }
+  }
+);
+
+// Obstacle arrays
+const blockArr = [];
+const blockArr2 = [];
+const blockArr3 = [];
+const blockArr4 = [];
+
+// Block array 1 & 3 timed release to 3 seconds
+setInterval(() => {
+  const newBlock = new Block();
+  blockArr.push(newBlock);
+
+  const newBlock3 = new Block3();
+  blockArr3.push(newBlock3);
+}, 3000);
+
+// Block array 2 & 4 timed release to 4 seconds
+setInterval(() => {
+  const newBlock2 = new Block2();
+  blockArr2.push(newBlock2);
+
+  const newBlock4 = new Block4();
+  blockArr4.push(newBlock4);
+}, 4000);
+
+// update game
+setInterval(() => {
   let collisionDetected = false;
-  blockArr.forEach((block) => {
+
+  blockArr.forEach((blockEvent) => {
+    // move obstacles
+    blockEvent.moveDown();
+
+    // collision detection
     if (
-      player.positionX < block.positionX + block.width &&
-      player.positionX + player.width > block.positionX &&
-      player.positionY < block.positionY + block.height &&
-      player.positionY + player.height > block.positionY
+      player.positionX < blockEvent.positionX + blockEvent.width &&
+      player.positionX + player.width > blockEvent.positionX &&
+      player.positionY < blockEvent.positionY + blockEvent.height &&
+      player.positionY + player.height > blockEvent.positionY
     ) {
       collisionDetected = true;
     }
   });
 
-  blockArr2.forEach((block2) => {
+  blockArr2.forEach((blockEvent2) => {
+    // move obstacles
+    blockEvent2.moveUp();
+
+    // collision detection
     if (
-      player.positionX < block2.positionX + block2.width &&
-      player.positionX + player.width > block2.positionX &&
-      player.positionY < block2.positionY + block2.height &&
-      player.positionY + player.height > block2.positionY
+      player.positionX < blockEvent2.positionX + blockEvent2.width &&
+      player.positionX + player.width > blockEvent2.positionX &&
+      player.positionY < blockEvent2.positionY + blockEvent2.height &&
+      player.positionY + player.height > blockEvent2.positionY
     ) {
       collisionDetected = true;
     }
   });
 
-  blockArr3.forEach((block3) => {
+  blockArr3.forEach((blockEvent3) => {
+    // move obstacles
+    blockEvent3.moveDown();
+
+    // collision detection
     if (
-      player.positionX < block3.positionX + block3.width &&
-      player.positionX + player.width > block3.positionX &&
-      player.positionY < block3.positionY + block3.height &&
-      player.positionY + player.height > block3.positionY
+      player.positionX < blockEvent3.positionX + blockEvent3.width &&
+      player.positionX + player.width > blockEvent3.positionX &&
+      player.positionY < blockEvent3.positionY + blockEvent3.height &&
+      player.positionY + player.height > blockEvent3.positionY
     ) {
       collisionDetected = true;
     }
   });
 
-  blockArr4.forEach((block4) => {
+  blockArr4.forEach((blockEvent4) => {
+    // move obstacles
+    blockEvent4.moveUp();
+
+    // collision detection
     if (
-      player.positionX < block4.positionX + block4.width &&
-      player.positionX + player.width > block4.positionX &&
-      player.positionY < block4.positionY + block4.height &&
-      player.positionY + player.height > block4.positionY
+      player.positionX < blockEvent4.positionX + blockEvent4.width &&
+      player.positionX + player.width > blockEvent4.positionX &&
+      player.positionY < blockEvent4.positionY + blockEvent4.height &&
+      player.positionY + player.height > blockEvent4.positionY
     ) {
       collisionDetected = true;
     }
@@ -249,71 +313,11 @@ document.addEventListener("keydown", (e) => {
     player.positionY = 50;
     player.domElement.style.left = player.positionX + "vw";
     player.domElement.style.top = player.positionY + "vh";
-  } else {
-    if (e.code === "ArrowLeft") {
-      player.moveLeft();
-    } else if (e.code === "ArrowRight") {
-      player.moveRight();
-    } else if (e.code === "ArrowUp") {
-      player.moveUp();
-    } else if (e.code === "ArrowDown") {
-      player.moveDown();
-    }
   }
-});
-
-const blockArr = [];
-
-setInterval(() => {
-  const newBlock = new Block();
-  blockArr.push(newBlock);
-}, 3000);
-
-setInterval(() => {
-  blockArr.forEach((blockEvent) => {
-    blockEvent.moveDown();
-  });
 }, 50);
 
-const blockArr2 = [];
 
-setInterval(() => {
-  const newBlock2 = new Block2();
-  blockArr2.push(newBlock2);
-}, 4000);
-
-setInterval(() => {
-  blockArr2.forEach((blockEvent2) => {
-    blockEvent2.moveUp();
-  });
-}, 50);
-
-const blockArr3 = [];
-
-setInterval(() => {
-  const newBlock3 = new Block3();
-  blockArr3.push(newBlock3);
-}, 3000);
-
-setInterval(() => {
-  blockArr3.forEach((blockEvent3) => {
-    blockEvent3.moveDown();
-  });
-}, 50);
-
-const blockArr4 = [];
-
-setInterval(() => {
-  const newBlock4 = new Block4();
-  blockArr4.push(newBlock4);
-}, 4000);
-
-setInterval(() => {
-  blockArr4.forEach((blockEvent4) => {
-    blockEvent4.moveUp();
-  });
-}, 50);
-
+// create player avatar and finish line
 const player = new Player();
 
 const finish = new Finish();
