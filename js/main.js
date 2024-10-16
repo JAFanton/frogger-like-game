@@ -1,4 +1,3 @@
-
 // Player Avatar + movement
 class Player {
   constructor() {
@@ -221,20 +220,37 @@ class Block4 {
   }
 }
 
+// Scoreboard
+class scoreBoard {
+  constructor() {
+    this.score = 0;
+
+    this.domElement = document.getElementById("scoreBoard");
+  }
+
+  updateScore() {
+    this.score++;
+    this.domElement.textContent = `Total score: ${this.score}`;
+  }
+
+  resetScore() {
+    this.score = 0;
+    this.domElement.textContent = `Total score: ${this.score}`;
+  }
+}
 
 // Movement functionality
 document.addEventListener("keydown", (e) => {
-    if (e.code === "ArrowLeft") {
-      player.moveLeft();
-    } else if (e.code === "ArrowRight") {
-      player.moveRight();
-    } else if (e.code === "ArrowUp") {
-      player.moveUp();
-    } else if (e.code === "ArrowDown") {
-      player.moveDown();
-    }
+  if (e.code === "ArrowLeft") {
+    player.moveLeft();
+  } else if (e.code === "ArrowRight") {
+    player.moveRight();
+  } else if (e.code === "ArrowUp") {
+    player.moveUp();
+  } else if (e.code === "ArrowDown") {
+    player.moveDown();
   }
-);
+});
 
 // Obstacle arrays
 const blockArr = [];
@@ -260,7 +276,7 @@ setInterval(() => {
   blockArr4.push(newBlock4);
 }, 4000);
 
-// update game
+// update game + collision detection & score update
 setInterval(() => {
   let collisionDetected = false;
 
@@ -276,6 +292,7 @@ setInterval(() => {
       player.positionY + player.height > blockEvent.positionY
     ) {
       collisionDetected = true;
+      score.resetScore();
     }
   });
 
@@ -291,6 +308,7 @@ setInterval(() => {
       player.positionY + player.height > blockEvent2.positionY
     ) {
       collisionDetected = true;
+      score.resetScore();
     }
   });
 
@@ -306,6 +324,7 @@ setInterval(() => {
       player.positionY + player.height > blockEvent3.positionY
     ) {
       collisionDetected = true;
+      score.resetScore();
     }
   });
 
@@ -321,6 +340,7 @@ setInterval(() => {
       player.positionY + player.height > blockEvent4.positionY
     ) {
       collisionDetected = true;
+      score.resetScore();
     }
   });
 
@@ -331,6 +351,7 @@ setInterval(() => {
     player.positionY + player.height > finish.positionY
   ) {
     collisionDetected = true;
+    score.updateScore();
   }
 
   if (collisionDetected) {
@@ -341,10 +362,9 @@ setInterval(() => {
   }
 }, 50);
 
-
 // create player avatar and finish line
 const player = new Player();
 
 const finish = new Finish();
 
-const lane = new Lane();
+const score = new scoreBoard();
