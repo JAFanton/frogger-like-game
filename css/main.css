@@ -9,25 +9,40 @@ body {
     width: 100vw;
     position: relative;
     overflow: hidden;
+    background-image: url("../Basic Asset Pack/grassBackground.jpg");
+    background-size: cover;
 }
 
 #player {
-    background-color: red;
     position: absolute;
+    background-image: url("../Basic Asset Pack/basic animal animations/Tiny Chick/TinyChick.png");
+    background-size: cover;
 }
 
 
-#block {
-    background-color: white;
+#block, #block2, #block3, #block4 {
     position: absolute;
+    background-image: url("../Basic Asset Pack/basic animal animations/Timber Wolf/TimberWolf.png");
+    background-size: cover;
 }
 
 #finish {
-    background-color: blue;
     position: absolute;
+    background-image: url("../Basic Asset Pack/Cartoon_green_texture_grass.jpg");
+    background-size: cover;
 }
 
 #lane{
     outline: 1vw dashed grey;
     position: absolute;
+}
+
+#scoreBoard{
+    background-color: black;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: white;
+    padding: 10px;
+    font-size: 1.5vw;
 }

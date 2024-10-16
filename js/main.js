@@ -105,31 +105,6 @@ class Block {
   }
 }
 
-/*class Lane {
-    constructor() {
-        this.width = 5;
-        this.height = 100;
-        this.positionX = 20 - this.width / 2;
-        this.positionY = 0;
-        this.domElement = null;
-    
-        this.createDomElement();
-      }
-    
-      createDomElement() {
-        this.domElement = document.createElement("div");
-        this.domElement.id = "lane";
-        this.domElement.style.width = this.width + "vw";
-        this.domElement.style.height = this.height + "vh";
-        this.domElement.style.left = this.positionX + "vw";
-        this.domElement.style.top = this.positionY + "vh";
-        this.domElement.style.opacity = 1;
-    
-        const board = document.getElementById("board");
-        board.appendChild(this.domElement);
-      }
-}*/
-
 // Obstacle 2 + upward movement for obstacles within lane
 class Block2 {
   constructor() {
