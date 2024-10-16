@@ -1,5 +1,5 @@
 
-// Player Avatar
+// Player Avatar + movement
 class Player {
   constructor() {
     this.width = 5;
@@ -76,7 +76,7 @@ class Finish {
   }
 }
 
-// Obstacle Lane 1
+// Obstacle 1 + downward movement for obstacles within lane
 class Block {
   constructor() {
     this.width = 5;
@@ -106,7 +106,32 @@ class Block {
   }
 }
 
-// Obstacle Lane 2
+/*class Lane {
+    constructor() {
+        this.width = 5;
+        this.height = 100;
+        this.positionX = 20 - this.width / 2;
+        this.positionY = 0;
+        this.domElement = null;
+    
+        this.createDomElement();
+      }
+    
+      createDomElement() {
+        this.domElement = document.createElement("div");
+        this.domElement.id = "lane";
+        this.domElement.style.width = this.width + "vw";
+        this.domElement.style.height = this.height + "vh";
+        this.domElement.style.left = this.positionX + "vw";
+        this.domElement.style.top = this.positionY + "vh";
+        this.domElement.style.opacity = 1;
+    
+        const board = document.getElementById("board");
+        board.appendChild(this.domElement);
+      }
+}*/
+
+// Obstacle 2 + upward movement for obstacles within lane
 class Block2 {
   constructor() {
     this.width = 5;
@@ -136,7 +161,7 @@ class Block2 {
   }
 }
 
-// Obstacle Lane 3
+// Obstacle 3 + downward movement for obstacles within lane
 class Block3 {
   constructor() {
     this.width = 5;
@@ -166,7 +191,7 @@ class Block3 {
   }
 }
 
-// Obstacle Lane 4
+// Obstacle 4 + upward movement for obstacles within lane
 class Block4 {
   constructor() {
     this.width = 5;
@@ -321,3 +346,5 @@ setInterval(() => {
 const player = new Player();
 
 const finish = new Finish();
+
+const lane = new Lane();
