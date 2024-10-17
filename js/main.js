@@ -24,13 +24,13 @@ class Player {
 
   moveRight() {
     if (this.positionX + this.width < 100) {
-      this.positionX += 2;
+      this.positionX += 3;
       this.domElement.style.left = this.positionX + "vw";
     }
   }
   moveLeft() {
     if (this.positionX > 0) {
-      this.positionX -= 2;
+      this.positionX -= 3;
       this.domElement.style.left = this.positionX + "vw";
     }
   }
@@ -130,7 +130,7 @@ class Block2 {
   }
 
   moveUp() {
-    this.positionY--;
+    this.positionY -=4;
     this.domElement.style.top = this.positionY + "vh";
   }
 }
@@ -160,7 +160,7 @@ class Block3 {
   }
 
   moveDown() {
-    this.positionY++;
+    this.positionY += 2;
     this.domElement.style.top = this.positionY + "vh";
   }
 }
@@ -190,7 +190,7 @@ class Block4 {
   }
 
   moveUp() {
-    this.positionY--;
+    this.positionY -=3;
     this.domElement.style.top = this.positionY + "vh";
   }
 }
@@ -240,7 +240,7 @@ setInterval(() => {
 
   const newBlock3 = new Block3();
   blockArr3.push(newBlock3);
-}, 3000);
+}, 2000);
 
 // Block array 2 & 4 timed release to 4 seconds
 setInterval(() => {
@@ -249,9 +249,9 @@ setInterval(() => {
 
   const newBlock4 = new Block4();
   blockArr4.push(newBlock4);
-}, 4000);
+}, 1000);
 
-// update game + collision detection & score update
+// update game + collision detection & score update & audio.
 setInterval(() => {
   let collisionDetected = false;
 
@@ -268,6 +268,7 @@ setInterval(() => {
     ) {
       collisionDetected = true;
       score.resetScore();
+      crashSound.play();
     }
   });
 
@@ -284,6 +285,7 @@ setInterval(() => {
     ) {
       collisionDetected = true;
       score.resetScore();
+      crashSound.play();
     }
   });
 
@@ -300,6 +302,7 @@ setInterval(() => {
     ) {
       collisionDetected = true;
       score.resetScore();
+      crashSound.play();
     }
   });
 
@@ -316,6 +319,7 @@ setInterval(() => {
     ) {
       collisionDetected = true;
       score.resetScore();
+      crashSound.play();
     }
   });
 
@@ -327,6 +331,7 @@ setInterval(() => {
   ) {
     collisionDetected = true;
     score.updateScore();
+    finishSound.play();
   }
 
   if (collisionDetected) {
@@ -337,9 +342,21 @@ setInterval(() => {
   }
 }, 50);
 
+// General audio for the game
+const audio = new Audio('./Sound/highway.mp3');
+audio.loop = true;
+
+// Audio for reaching the other side
+const finishSound = document.getElementById("finish-sound")
+
+// Audio for hitting a car
+const crashSound = document.getElementById("car-crash")
+
 // create player avatar and finish line
 const player = new Player();
 
 const finish = new Finish();
 
 const score = new scoreBoard();
+
+audio.play();
