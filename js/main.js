@@ -24,27 +24,27 @@ class Player {
 
   moveRight() {
     if (this.positionX + this.width < 100) {
-      this.positionX++;
+      this.positionX += 2;
       this.domElement.style.left = this.positionX + "vw";
     }
   }
   moveLeft() {
     if (this.positionX > 0) {
-      this.positionX--;
+      this.positionX -= 2;
       this.domElement.style.left = this.positionX + "vw";
     }
   }
 
   moveUp() {
     if (this.positionY > 0) {
-      this.positionY--;
+      this.positionY -= 4;
       this.domElement.style.top = this.positionY + "vh";
     }
   }
 
   moveDown() {
     if (this.positionY + this.height < 100) {
-      this.positionY++;
+      this.positionY += 4;
       this.domElement.style.top = this.positionY + "vh";
     }
   }
@@ -79,8 +79,8 @@ class Finish {
 class Block {
   constructor() {
     this.width = 5;
-    this.height = 20;
-    this.positionX = 20 - this.width / 2;
+    this.height = 9;
+    this.positionX = 25 - this.width / 2;
     this.positionY = 0 - this.height;
     this.domElement = null;
 
@@ -109,8 +109,8 @@ class Block {
 class Block2 {
   constructor() {
     this.width = 5;
-    this.height = 20;
-    this.positionX = 40 - this.width / 2;
+    this.height = 9;
+    this.positionX = 43 - this.width / 2;
     this.positionY = 100 + this.height;
     this.domElement = null;
 
@@ -119,7 +119,7 @@ class Block2 {
 
   createDomElement() {
     this.domElement = document.createElement("div");
-    this.domElement.id = "block";
+    this.domElement.id = "block2";
     this.domElement.style.width = this.width + "vw";
     this.domElement.style.height = this.height + "vh";
     this.domElement.style.left = this.positionX + "vw";
@@ -139,8 +139,8 @@ class Block2 {
 class Block3 {
   constructor() {
     this.width = 5;
-    this.height = 20;
-    this.positionX = 60 - this.width / 2;
+    this.height = 9;
+    this.positionX = 57 - this.width / 2;
     this.positionY = 0 - this.height;
     this.domElement = null;
 
@@ -149,7 +149,7 @@ class Block3 {
 
   createDomElement() {
     this.domElement = document.createElement("div");
-    this.domElement.id = "block";
+    this.domElement.id = "block3";
     this.domElement.style.width = this.width + "vw";
     this.domElement.style.height = this.height + "vh";
     this.domElement.style.left = this.positionX + "vw";
@@ -169,8 +169,8 @@ class Block3 {
 class Block4 {
   constructor() {
     this.width = 5;
-    this.height = 20;
-    this.positionX = 80 - this.width / 2;
+    this.height = 9;
+    this.positionX = 73 - this.width / 2;
     this.positionY = 100 + this.height;
     this.domElement = null;
 
@@ -179,7 +179,7 @@ class Block4 {
 
   createDomElement() {
     this.domElement = document.createElement("div");
-    this.domElement.id = "block";
+    this.domElement.id = "block4";
     this.domElement.style.width = this.width + "vw";
     this.domElement.style.height = this.height + "vh";
     this.domElement.style.left = this.positionX + "vw";

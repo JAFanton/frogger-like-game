@@ -9,27 +9,31 @@ body {
     width: 100vw;
     position: relative;
     overflow: hidden;
-    background-image: url("../Basic Asset Pack/grassBackground.jpg");
+    background-image: url("../Images/Street\ background.png");
     background-size: cover;
 }
 
 #player {
     position: absolute;
-    background-image: url("../Basic Asset Pack/basic animal animations/Tiny Chick/TinyChick.png");
+    background-image: url("../Images/TinyChick.png");
     background-size: cover;
 }
 
 
-#block, #block2, #block3, #block4 {
+#block, #block3 {
     position: absolute;
-    background-image: url("../Basic Asset Pack/basic animal animations/Timber Wolf/TimberWolf.png");
-    background-size: cover;
+    background-image: url("../Images/car01iso_0001.png");
+    background-size: contain;
+}
+
+#block2, #block4 {
+    position: absolute;
+    background-image: url("../Images/pickuptruck01iso_0005.png");
+    background-size: contain;
 }
 
 #finish {
     position: absolute;
-    background-image: url("../Basic Asset Pack/Cartoon_green_texture_grass.jpg");
-    background-size: cover;
 }
 
 #lane{
