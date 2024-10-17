@@ -343,8 +343,9 @@ setInterval(() => {
 }, 50);
 
 // General audio for the game
-const audio = new Audio('./Sound/highway.mp3');
+const audio = new Audio('./Sound/happy-game-music.mp3');
 audio.loop = true;
+audio.volume = 0.1;
 
 // Audio for reaching the other side
 const finishSound = document.getElementById("finish-sound")
