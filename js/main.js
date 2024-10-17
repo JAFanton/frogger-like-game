@@ -24,27 +24,27 @@ class Player {
 
   moveRight() {
     if (this.positionX + this.width < 100) {
-      this.positionX += 3;
+      this.positionX += 4;
       this.domElement.style.left = this.positionX + "vw";
     }
   }
   moveLeft() {
     if (this.positionX > 0) {
-      this.positionX -= 3;
+      this.positionX -= 4;
       this.domElement.style.left = this.positionX + "vw";
     }
   }
 
   moveUp() {
     if (this.positionY > 0) {
-      this.positionY -= 4;
+      this.positionY -= 6;
       this.domElement.style.top = this.positionY + "vh";
     }
   }
 
   moveDown() {
     if (this.positionY + this.height < 100) {
-      this.positionY += 4;
+      this.positionY += 6;
       this.domElement.style.top = this.positionY + "vh";
     }
   }
@@ -130,7 +130,7 @@ class Block2 {
   }
 
   moveUp() {
-    this.positionY -=4;
+    this.positionY -=3;
     this.domElement.style.top = this.positionY + "vh";
   }
 }
@@ -190,7 +190,7 @@ class Block4 {
   }
 
   moveUp() {
-    this.positionY -=3;
+    this.positionY -=4;
     this.domElement.style.top = this.positionY + "vh";
   }
 }
@@ -249,7 +249,7 @@ setInterval(() => {
 
   const newBlock4 = new Block4();
   blockArr4.push(newBlock4);
-}, 1000);
+}, 1500);
 
 // update game + collision detection & score update & audio.
 setInterval(() => {
