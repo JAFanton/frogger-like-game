@@ -1,4 +1,4 @@
-// Player Avatar + movement
+// Player Avatar + movement.
 class Player {
   constructor() {
     this.width = 5;
@@ -50,7 +50,7 @@ class Player {
   }
 }
 
-// Finish Line
+// Finish Line.
 class Finish {
   constructor() {
     this.width = 10;
@@ -75,7 +75,7 @@ class Finish {
   }
 }
 
-// Obstacle 1 + downward movement for obstacles within lane
+// Obstacle 1 + downward movement for obstacles within lane.
 class Block {
   constructor() {
     this.width = 5;
@@ -105,7 +105,7 @@ class Block {
   }
 }
 
-// Obstacle 2 + upward movement for obstacles within lane
+// Obstacle 2 + upward movement for obstacles within lane.
 class Block2 {
   constructor() {
     this.width = 5;
@@ -135,7 +135,7 @@ class Block2 {
   }
 }
 
-// Obstacle 3 + downward movement for obstacles within lane
+// Obstacle 3 + downward movement for obstacles within lane.
 class Block3 {
   constructor() {
     this.width = 5;
@@ -165,7 +165,7 @@ class Block3 {
   }
 }
 
-// Obstacle 4 + upward movement for obstacles within lane
+// Obstacle 4 + upward movement for obstacles within lane.
 class Block4 {
   constructor() {
     this.width = 5;
@@ -195,7 +195,7 @@ class Block4 {
   }
 }
 
-// Scoreboard
+// Scoreboard.
 class scoreBoard {
   constructor() {
     this.score = 0;
@@ -214,7 +214,7 @@ class scoreBoard {
   }
 }
 
-// Movement functionality
+// Movement functionality.
 document.addEventListener("keydown", (e) => {
   if (e.code === "ArrowLeft") {
     player.moveLeft();
@@ -233,7 +233,7 @@ const blockArr2 = [];
 const blockArr3 = [];
 const blockArr4 = [];
 
-// Block array 1 & 3 timed release to 3 seconds
+// Block array 1 & 3 timed release to 3 seconds.
 setInterval(() => {
   const newBlock = new Block();
   blockArr.push(newBlock);
@@ -242,7 +242,7 @@ setInterval(() => {
   blockArr3.push(newBlock3);
 }, 2000);
 
-// Block array 2 & 4 timed release to 4 seconds
+// Block array 2 & 4 timed release to 4 seconds.
 setInterval(() => {
   const newBlock2 = new Block2();
   blockArr2.push(newBlock2);
@@ -342,18 +342,18 @@ setInterval(() => {
   }
 }, 50);
 
-// General audio for the game
+// General audio for the game + audio adjustment.
 const audio = new Audio('./Sound/happy-game-music.mp3');
 audio.loop = true;
 audio.volume = 0.1;
 
-// Audio for reaching the other side
+// Audio for reaching the other side.
 const finishSound = document.getElementById("finish-sound")
 
-// Audio for hitting a car
+// Audio for hitting a car.
 const crashSound = document.getElementById("car-crash")
 
-// create player avatar and finish line
+// create player avatar and finish line.
 const player = new Player();
 
 const finish = new Finish();
