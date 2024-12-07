@@ -199,13 +199,19 @@ class Block4 {
 class scoreBoard {
   constructor() {
     this.score = 0;
+    this.highScore = 0;
 
     this.domElement = document.getElementById("scoreBoard");
+    this.highScoreElement = document.getElementById("highScoreBoard");
   }
 
   updateScore() {
     this.score++;
+    if (this.score > this.highScore) {
+      this.highScore = this.score;
+    }
     this.domElement.textContent = `Total score: ${this.score}`;
+    this.highScoreElement.textContent = `High score: ${this.highScore}`;
   }
 
   resetScore() {

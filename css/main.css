@@ -50,3 +50,13 @@ body {
     padding: 10px;
     font-size: 1.5vw;
 }
+
+#highScoreBoard{
+    background-color: black;
+    position: absolute;
+    top: 48px;
+    left: 10px;
+    color: white;
+    padding: 10px;
+    font-size: 1.5vw;
+}
